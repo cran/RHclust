@@ -1,0 +1,5 @@
+exportPattern("^[[:alpha:]]+")
+importFrom('Runuran', 'urnorm')
+importFrom("graphics", "par", "text")
+importFrom("stats", "aggregate", "coef", "lm", "qf", "runif")
+importFrom("utils", "tail")
