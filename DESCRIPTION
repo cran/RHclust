@@ -1,7 +1,7 @@
 Package: RHclust
 Type: Package
 Title: Vectors in Partitioning
-Version: 1.0.0
+Version: 1.1.0
 Authors@R: c(person("Joseph","Handwerker", role = c("aut", "cre"),
                     email = "jkhndwrk@memphis.edu"),
             person("Lauren","Sobral", role = "ctb"),
@@ -12,9 +12,9 @@ License: Artistic-2.0
 Encoding: UTF-8
 Imports: Runuran,graphics,stats,utils
 NeedsCompilation: no
-Packaged: 2021-05-05 15:52:27 UTC; kip
+Packaged: 2022-06-16 22:36:09 UTC; 19018
 Author: Joseph Handwerker [aut, cre],
   Lauren Sobral [ctb],
   Meredith Ray [aut, ctb]
 Repository: CRAN
-Date/Publication: 2021-05-06 09:00:05 UTC
+Date/Publication: 2022-06-16 23:30:02 UTC

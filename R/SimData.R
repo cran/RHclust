@@ -19,7 +19,12 @@ SimData = function(seed = NULL, gene = 36,
                     c(0.20,0.55,0.25),
                     c(0.30,0.15,0.55),
                     c(0.20,0.50,0.30),
-                    c(0.45,0.20,0.35))
+                    c(0.45,0.20,0.35),
+                    c(0.26,0.52,0.22),
+                    c(0.23,0.21,0.56),
+                    c(0.23,0.52,0.25),
+                    c(0.51,0.25,0.24),
+                    c(0.21,0.58,0.21))
   }
   if(length(k) > length(problist)) stop('Number of clusters exceeds ProbDist.\n')
   probdist = 1

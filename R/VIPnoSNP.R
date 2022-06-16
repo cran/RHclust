@@ -276,7 +276,7 @@ VIPnoSNP = function (Simulated = NULL, CPG = NULL, GE = NULL,
   }
 
   if(optimize == 'elbow'){
-    elb = elbow(cOPwss, PenType)
+    elb = elbow(lb:ub,PenType[!is.na(PenType)])
     opt.output = output.all[[elb]]
   }
 
@@ -292,6 +292,9 @@ VIPnoSNP = function (Simulated = NULL, CPG = NULL, GE = NULL,
     par_ = par(no.readonly = TRUE)
     on.exit(par(par_))
     par(mfrow = c(1,3))
+
+    outputPlot = lapply(outputPlot, na.omit)
+
     plot(x = lb:ub,outputPlot$Total_WSS, type = 'b',
          ylim = c(min(outputPlot$Total_WSS), max(outputPlot$Total_WSS)*1.1),
          xlab = 'Clusters', ylab = '', main = 'Total_WSS')

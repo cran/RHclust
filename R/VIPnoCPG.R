@@ -278,7 +278,7 @@ VIPnoCPG = function (Simulated = NULL, SNP = NULL, GE = NULL,
   }
 
   if(optimize == 'elbow'){
-    elb = elbow(cOPwss, PenType)
+    elb = elbow(lb:ub,PenType[!is.na(PenType)])
     opt.output = output.all[[elb]]
   }
 
@@ -294,10 +294,13 @@ VIPnoCPG = function (Simulated = NULL, SNP = NULL, GE = NULL,
     par_ = par(no.readonly = TRUE)
     on.exit(par(par_))
     par(mfrow = c(1,3))
+
+    outputPlot = lapply(outputPlot, na.omit)
+
     plot(x = lb:ub,outputPlot$Total_WSS, type = 'b',
          ylim = c(min(outputPlot$Total_WSS), max(outputPlot$Total_WSS)*1.1),
          xlab = 'Clusters', ylab = '', main = 'Total_WSS')
-    if (any(seq(lb:ub) != outputPlot$Clusters)){
+    if (any(seq(lb,ub) != outputPlot$Clusters)){
       text(x = lb:ub, y = outputPlot$Total_WSS, labels = paste0('(',outputPlot$Clusters,')'),pos = 3, col = 'red')
       warning('Total WSS clusters have been labeled based on assigned number of centers.')
     }
@@ -305,7 +308,7 @@ VIPnoCPG = function (Simulated = NULL, SNP = NULL, GE = NULL,
     plot(x = lb:ub, outputPlot$AIC, type = 'b',
          ylim = c(min(outputPlot$AIC), max(outputPlot$AIC)*1.1),
          xlab = 'Clusters', ylab = '', main = 'AIC')
-    if (any(seq(lb:ub) != outputPlot$Clusters)){
+    if (any(seq(lb,ub) != outputPlot$Clusters)){
       text(x = lb:ub,outputPlot$AIC,labels = paste0('(',outputPlot$Clusters,')'),pos = 3, col = 'red')
       warning('AIC clusters have been labeled based on assigned number of centers.')
     }
@@ -313,7 +316,7 @@ VIPnoCPG = function (Simulated = NULL, SNP = NULL, GE = NULL,
     plot(x = lb:ub, outputPlot$BIC, type = 'b',
          ylim = c(min(outputPlot$BIC), max(outputPlot$BIC)*1.1),
          xlab = 'Clusters', ylab = '', main = 'BIC')
-    if (any(seq(lb:ub) != outputPlot$Clusters)){
+    if (any(seq(lb,ub) != outputPlot$Clusters)){
       text(x = lb:ub,outputPlot$BIC,labels = paste0('(',outputPlot$Clusters,')'),pos = 3, col = 'red')
       warning('BIC clusters have been labeled based on assigned number of centers.')
     }

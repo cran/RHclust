@@ -22,7 +22,7 @@ SimData(seed = NULL, gene = 36,
 \item{CPGsd}{Optional numeric input to change the standard deviation of CPG data}
 \item{SameCPG}{Logical value that if set to True sets the distribution of each CPG cluster around the same mean}
 \item{SameSNP}{Logical value that if set to True changes the probability distribution of SNPs to be the same per cluster}
-\item{ProbDist}{Optional list input that allows the change of SNP probability distributions per cluster. Default list stops at 5 cluster distributions. Default ProbDist = list(c(0.50,0.25,0.25), c(0.20,0.55,0.25), c(0.30,0.15,0.55), c(0.20,0.50,0.30), c(0.45,0.20,0.35))}
+\item{ProbDist}{Optional list input that allows the change of SNP probability distributions per cluster. Default list stops at 10 cluster distributions. Default problist = list(c(0.50,0.25,0.25),c(0.20,0.55,0.25),c(0.30,0.15,0.55),c(0.20,0.50,0.30),c(0.45,0.20,0.35),c(0.26,0.52,0.22),c(0.23,0.21,0.56),c(0.23,0.52,0.25),c(0.51,0.25,0.24),c(0.21,0.58,0.21))}
 }
 
 \details{

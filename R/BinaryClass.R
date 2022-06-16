@@ -27,7 +27,7 @@ BinaryClass = function(x){
 
     if (length(unique(dupmodes)) == 1){
       subs = sum(tab[unique(dupmodes),]) - m[which.max(tab[dupmodes,])]
-    } else subs = rowSums(tab[dupmodes,]) - m[which.max(tab[,dupmodes])]
+    } else subs = rowSums(tab[dupmodes,]) - m[which.max(tab[dupmodes])]
 
   }
 
