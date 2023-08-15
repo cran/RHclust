@@ -1,6 +1,6 @@
 \name{VIPnoCPG}
 \alias{VIPnoCPG}
-\title{Vectors in Partitioning without CPG data}
+\title{Vector in Partition without CPG data}
 \description{
 Clustering of subjects based on similar patterns of gene expression and SNPs.
 }

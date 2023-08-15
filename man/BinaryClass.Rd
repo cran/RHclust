@@ -8,7 +8,7 @@ A confusion matrix but allows for anaylsis of non-equal level data classificatio
 BinaryClass(x)
 }
 \arguments{
-\item{x}{Can be a data frame dimensions at least 2 rows and 2 columns meant to represent observed and predicted values where the observed (true) values are in the first column and predicted columns in the second column. Can also be a table from 'table()'.}
+\item{x}{Can be a data frame dimensions at least 2 rows and 2 columns meant to represent observed and predicted values where the observed (true) values are in the first column and predicted columns in the second column.}
 }
 
 \details{
@@ -35,24 +35,21 @@ jkhndwrk@memphis.edu
 true = c(rep(1,5), rep(2,5), rep(3,5), rep(4,5))
 pred = c(rep(1,4),4,rep(2,5),2,rep(3,4),1,rep(4,4))
 df = cbind(true,pred)
-dff = table(pred,true)
 BinaryClass(df)
-BinaryClass(dff)
+
 
 true = c(rep(1,5), rep(2,5), rep(3,5), rep(4,5))
 pred = c(rep(1,5),rep(2,5),rep(3,10))
 df = cbind(true,pred)
-dff = table(pred,true)
 BinaryClass(df)
-BinaryClass(dff)
+
 
 \donttest{
 sd = SimData(k = c(10,40,50))
 out = VIP(sd, v = 3, optimize = 'elbow', nstart = 5)
 df = out$`BC Test`
-out_table = table(df[,2], df[,1])
 BinaryClass(df)
-BinaryClass(out_table)
+
 
 ## Looping through different clusters
 

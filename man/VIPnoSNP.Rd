@@ -1,6 +1,6 @@
 \name{VIPnoSNP}
 \alias{VIPnoSNP}
-\title{Vectors in Partitioning without SNP data}
+\title{Vector in Partition without SNP data}
 \description{
 Clustering of subjects based on similar patterns of gene expression and DNA methylation.
 }

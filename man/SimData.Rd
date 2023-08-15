@@ -1,8 +1,8 @@
 \name{SimData}
 \alias{SimData}
-\title{GE, CPG, SNP Simulated Data}
+\title{GE, CPG, SNP, and Covariate Simulated Data}
 \description{
-Simulated data generator containing continuous variables representing gene expression (GE) data and DNA methylation data as M-values (GPG), and  categorical variable representing single nucleotide polymorphisms (SNP). GE and CPG data are simulated from a normal distribution and SNP data is simulated from a multinomial distribution.
+Simulated data generator containing continuous variables representing gene expression (GE) data and DNA methylation data as M-values (GPG), and  categorical variable representing single nucleotide polymorphisms (SNP). GE and CPG data are simulated from a normal distribution and SNP data is simulated from a multinomial distribution. Covariate data can have uniformly distributed data or normally distributed. Cluster separation can also be distinct or non-distinct.
 }
 \usage{
 SimData(seed = NULL, gene = 36,
@@ -10,7 +10,8 @@ SimData(seed = NULL, gene = 36,
         GEbar = 5, GEsd = 0.5,
         CPGbar = 4, CPGsd = 0.5,
         SameCPG = FALSE, SameSNP = FALSE,
-        ProbDist = NULL)
+        ProbDist = NULL, SameGeneDist = TRUE,
+        distinct=TRUE)
 }
 \arguments{
 \item{seed}{Set specified seed for reproducibility}
@@ -22,13 +23,14 @@ SimData(seed = NULL, gene = 36,
 \item{CPGsd}{Optional numeric input to change the standard deviation of CPG data}
 \item{SameCPG}{Logical value that if set to True sets the distribution of each CPG cluster around the same mean}
 \item{SameSNP}{Logical value that if set to True changes the probability distribution of SNPs to be the same per cluster}
-\item{ProbDist}{Optional list input that allows the change of SNP probability distributions per cluster. Default list stops at 10 cluster distributions. Default problist = list(c(0.50,0.25,0.25),c(0.20,0.55,0.25),c(0.30,0.15,0.55),c(0.20,0.50,0.30),c(0.45,0.20,0.35),c(0.26,0.52,0.22),c(0.23,0.21,0.56),c(0.23,0.52,0.25),c(0.51,0.25,0.24),c(0.21,0.58,0.21))}
+\item{ProbDist}{Optional list input that allows the change of SNP probability distributions per cluster. Default list stops at 5 cluster distributions. Default ProbDist = list(c(0.50,0.25,0.25), c(0.20,0.55,0.25), c(0.30,0.15,0.55), c(0.20,0.50,0.30), c(0.45,0.20,0.35))}
+\item{SameGeneDist}{Logical that set the covariates to follow the genetic clustering scheme where the data is uniformly distributed amongst each subgroup in each cluster. Or if set to FALSE sets the covariates to be noisy and have no discernible groups.}
+\item{distinct}{Logical that sets the covariate data clusters to be distinct at default, or non-distance when set to FALSE}
 }
 
 \details{
-SimData simply creates simulated data that aims to represent real world data for gene expression (GE), DNA methylations (CPG),
-and single neucleotide polymorphisms (SNP). The goal of this function is to allow the user the ability to manipulate their data
-for testing of the main VIP() function.
+SimData creates simulated data that aims to represent real world data for gene expression (GE), DNA methylations (CPG),
+and single neucleotide polymorphisms (SNP). Covariate data is used to represent other potentially useful health data to further weight the genetics data. The goal of this function is to allow the user the ability to manipulate their data for testing of the VIP() or VIPcov() functions.
 }
 
 \value{
@@ -47,6 +49,8 @@ for testing of the main VIP() function.
 \item{CPG_Index}{Index names for CPG.}
 
 \item{SNP_Index}{Index names for SNP.}
+
+\item{Covariates}{Simulated data for covariate data. By default contains 10 columns of cateogrical data and 10 columns of numeric data.}
 
 }
 
